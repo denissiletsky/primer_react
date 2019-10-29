@@ -1,0 +1,30 @@
+import React from 'react'
+import Label from '../Label'
+import {render} from '../utils/testing'
+import {COMMON} from '../constants'
+
+describe('Label', () => {
+  it('renders a <span>', () => {
+    expect(render(<Label />).type).toEqual('span')
+  })
+
+  it('respects the "outline" prop', () => {
+    expect(render(<Label outline />)).toMatchSnapshot()
+  })
+
+  it('respects the "variant" prop', () => {
+    expect(render(<Label variant="xl" />)).toMatchSnapshot()
+  })
+
+  it('respects the "as" prop', () => {
+    expect(render(<Label as="span" />).type).toEqual('span')
+  })
+
+  it('has default theme', () => {
+    expect(Label).toSetDefaultTheme()
+  })
+
+  it('implements system props', () => {
+    expect(Label).toImplementSystemProps(COMMON)
+  })
+})
